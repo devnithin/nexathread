@@ -6,7 +6,8 @@ import { images } from '../constants';
 import CustomButton from '../components/CustomButton';
 import 'react-native-url-polyfill/auto'
 import { useGlobalContext } from '../context/GlobalProvider';
-export default function App() {
+
+const App = () =>{
   const {isLoading , isLoggedIn} = useGlobalContext();
 
   if(!isLoading && isLoggedIn) return <Redirect href="/home" />;
@@ -49,5 +50,7 @@ export default function App() {
     <StatusBar backgroundColor='#161622' style='light'/>
    </SafeAreaView>
   );
-}
+};
+
+export default App;
  

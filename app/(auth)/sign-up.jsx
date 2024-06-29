@@ -7,14 +7,16 @@ import { Link, router } from 'expo-router'
 import { createUser } from '../../lib/appwrite'
 
 const SignUp = () => {
+  const { setUser , setIsLoggedIn } = useGlobalContext();
+  const [isSubmitting, setisSubmitting] = useState(false)
 
   const [form , setForm] = useState({
     username:'' ,
     email:'',
     password:''
-  })
-  const [isSubmitting, setisSubmitting] = useState(false)
-  const { setIsLoggedIn, setUser } = useGlobalContext();
+  });
+  
+  
  const submit =  async () => {
     if(form.username === "" || form.email === "" || form.password === ""){
       Alert.alert('Error','Please fill all the fields')
